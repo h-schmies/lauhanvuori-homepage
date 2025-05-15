@@ -206,11 +206,12 @@ export default function SustainabilityContent() {
 
                             <div className="lg:col-span-1">
                                 <div className="sticky top-24 space-y-6">
-                                    <div className="relative h-64 w-full rounded-lg overflow-hidden">
+                                    <div className="relative h-full w-full rounded-lg overflow-hidden">
                                         <Image
-                                            src="/placeholder-a6yy6.png"
+                                            src="/images/no-camping.jpg"
                                             alt="Protected area sign in forest"
-                                            fill
+                                            height={600}
+                                            width={600}
                                             className="object-cover"
                                         />
                                     </div>
@@ -480,11 +481,12 @@ export default function SustainabilityContent() {
 
                             <div className="lg:col-span-1">
                                 <div className="sticky top-24 space-y-6">
-                                    <div className="relative h-64 w-full rounded-lg overflow-hidden">
+                                    <div className="relative h-full w-full rounded-lg overflow-hidden">
                                         <Image
-                                            src="/placeholder-r9box.png"
+                                            src="/images/waste-disposal.webp"
                                             alt="Recycling bins in nature park"
-                                            fill
+                                            height={600}
+                                            width={600}
                                             className="object-cover"
                                         />
                                     </div>
@@ -822,11 +824,12 @@ export default function SustainabilityContent() {
 
                             <div className="lg:col-span-1">
                                 <div className="sticky top-24 space-y-6">
-                                    <div className="relative h-64 w-full rounded-lg overflow-hidden">
+                                    <div className="relative h-full w-full rounded-lg overflow-hidden">
                                         <Image
-                                            src="/placeholder-whnvr.png"
+                                            src="/images/e-car.jpg"
                                             alt="Electric bikes in nature park"
-                                            fill
+                                            width={600}
+                                            height={600}
                                             className="object-cover"
                                         />
                                     </div>

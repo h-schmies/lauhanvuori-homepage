@@ -115,7 +115,7 @@ export default function BookingDialog({ open, onOpenChange, vehicle, station, ty
 
     return (
         <Dialog open={open} onOpenChange={handleClose}>
-            <DialogContent className="sm:max-w-[800px] max-h-[70vh]">
+            <DialogContent className="sm:max-w-[500px] max-h-[70vh]">
                 <DialogHeader>
                     <DialogTitle>Book {vehicleTitle}</DialogTitle>
                     <DialogDescription>
