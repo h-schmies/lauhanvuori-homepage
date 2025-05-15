@@ -60,7 +60,7 @@ export default function SustainabilityContent() {
 
                 {/* Navigation Tabs */}
                 <Tabs defaultValue="protected-areas" value={activeTab} onValueChange={setActiveTab} className="w-full">
-                    <TabsList className="grid w-full grid-cols-1 md:grid-cols-3">
+                    <TabsList className="grid w-full h-full grid-cols-1 md:grid-cols-3">
                         <TabsTrigger value="protected-areas" className="text-sm md:text-base">
                             Protected Areas & No-Camping Zones
                         </TabsTrigger>

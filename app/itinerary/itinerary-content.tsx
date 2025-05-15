@@ -1,17 +1,17 @@
 "use client"
 
 // Let's update the imports first to include all the components we need
-import { useState } from "react"
-import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs"
-import { Button } from "@/components/ui/button"
-import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from "@/components/ui/card"
-import { Badge } from "@/components/ui/badge"
-import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion"
-import { Checkbox } from "@/components/ui/checkbox"
-import { Label } from "@/components/ui/label"
-import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select"
-import { Separator } from "@/components/ui/separator"
-import { Clock, Utensils, Home, Bus, Printer, Download, Star, X } from "lucide-react"
+import {useState} from "react"
+import {Tabs, TabsContent, TabsList, TabsTrigger} from "@/components/ui/tabs"
+import {Button} from "@/components/ui/button"
+import {Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle} from "@/components/ui/card"
+import {Badge} from "@/components/ui/badge"
+import {Accordion, AccordionContent, AccordionItem, AccordionTrigger} from "@/components/ui/accordion"
+import {Checkbox} from "@/components/ui/checkbox"
+import {Label} from "@/components/ui/label"
+import {Select, SelectContent, SelectItem, SelectTrigger, SelectValue} from "@/components/ui/select"
+import {Separator} from "@/components/ui/separator"
+import {Clock, Utensils, Home, Bus, Printer, Download, Star, X} from "lucide-react"
 
 // Replace the entire component with this enhanced version
 export default function ItineraryContent() {
@@ -46,21 +46,52 @@ export default function ItineraryContent() {
                     Discover the perfect itinerary for your visit to Lauhanvuori GeoPark, with day-by-day activities,
                     accommodation recommendations, and insider tips.
                 </p>
+                <meta name="viewport" content="width=device-width, initial-scale=1"/>
             </div>
 
             {/* Main Tabs for Different Features */}
             <Tabs defaultValue="itineraries" className="mb-12">
-                <TabsList className="grid grid-cols-5 mb-8">
-                    <TabsTrigger value="itineraries">Itineraries</TabsTrigger>
-                    <TabsTrigger value="seasonal">Seasonal Variations</TabsTrigger>
-                    <TabsTrigger value="builder">Itinerary Builder</TabsTrigger>
-                    <TabsTrigger value="testimonials">Visitor Testimonials</TabsTrigger>
-                    <TabsTrigger value="print">Print & Download</TabsTrigger>
+                <TabsList
+                    className={`
+    grid w-full h-full grid-cols-1 md:grid-cols-5
+  `}
+                >
+                    <TabsTrigger
+                        className="flex-shrink-0 md:flex-1 ml-1"
+                        value="itineraries"
+                    >
+                        Itineraries
+                    </TabsTrigger>
+                    <TabsTrigger
+                        className="flex-shrink-0 md:flex-1"
+                        value="seasonal"
+                    >
+                        Seasonal Variations
+                    </TabsTrigger>
+                    <TabsTrigger
+                        className="flex-shrink-0 md:flex-1"
+                        value="builder"
+                    >
+                        Itinerary Builder
+                    </TabsTrigger>
+                    <TabsTrigger
+                        className="flex-shrink-0 md:flex-1"
+                        value="testimonials"
+                    >
+                        Visitor Testimonials
+                    </TabsTrigger>
+                    <TabsTrigger
+                        className="flex-shrink-0 md:flex-1"
+                        value="print"
+                    >
+                        Print & Download
+                    </TabsTrigger>
                 </TabsList>
 
+
                 {/* Itineraries Tab Content */}
-                <TabsContent value="itineraries" className="space-y-8">
-                    <div className="flex justify-center space-x-4 mb-8">
+                <TabsContent value="itineraries" className="space-y-8 pt-4">
+                    <div className="flex flex-col space-y-4 sm:flex-row sm:space-y-0 sm:space-x-4 justify-center mb-8">
                         <Button
                             variant={itineraryLength === "3-day" ? "default" : "outline"}
                             onClick={() => setItineraryLength("3-day")}
@@ -80,6 +111,7 @@ export default function ItineraryContent() {
                             7-Day Itinerary
                         </Button>
                     </div>
+
 
                     {itineraryLength === "7-day" && (
                         <div className="grid md:grid-cols-2 gap-8">
@@ -126,39 +158,39 @@ export default function ItineraryContent() {
                                                 <div className="space-y-4">
                                                     <div>
                                                         <h4 className="font-semibold flex items-center">
-                                                            <Clock className="w-4 h-4 mr-2" /> Morning
+                                                            <Clock className="w-4 h-4 mr-2"/> Morning
                                                         </h4>
                                                         <p>{getDayMorningActivity(day)}</p>
                                                     </div>
                                                     <div>
                                                         <h4 className="font-semibold flex items-center">
-                                                            <Clock className="w-4 h-4 mr-2" /> Afternoon
+                                                            <Clock className="w-4 h-4 mr-2"/> Afternoon
                                                         </h4>
                                                         <p>{getDayAfternoonActivity(day)}</p>
                                                     </div>
                                                     <div>
                                                         <h4 className="font-semibold flex items-center">
-                                                            <Clock className="w-4 h-4 mr-2" /> Evening
+                                                            <Clock className="w-4 h-4 mr-2"/> Evening
                                                         </h4>
                                                         <p>{getDayEveningActivity(day)}</p>
                                                     </div>
                                                     <div className="grid grid-cols-2 gap-4 mt-4">
                                                         <div>
                                                             <h4 className="font-semibold flex items-center">
-                                                                <Home className="w-4 h-4 mr-2" /> Accommodation
+                                                                <Home className="w-4 h-4 mr-2"/> Accommodation
                                                             </h4>
                                                             <p>{getDayAccommodation(day)}</p>
                                                         </div>
                                                         <div>
                                                             <h4 className="font-semibold flex items-center">
-                                                                <Utensils className="w-4 h-4 mr-2" /> Dining
+                                                                <Utensils className="w-4 h-4 mr-2"/> Dining
                                                             </h4>
                                                             <p>{getDayDining(day)}</p>
                                                         </div>
                                                     </div>
                                                     <div>
                                                         <h4 className="font-semibold flex items-center">
-                                                            <Bus className="w-4 h-4 mr-2" /> Transportation
+                                                            <Bus className="w-4 h-4 mr-2"/> Transportation
                                                         </h4>
                                                         <p>{getDayTransportation(day)}</p>
                                                     </div>
@@ -210,32 +242,32 @@ export default function ItineraryContent() {
                                                 <div className="space-y-4">
                                                     <div>
                                                         <h4 className="font-semibold flex items-center">
-                                                            <Clock className="w-4 h-4 mr-2" /> Morning
+                                                            <Clock className="w-4 h-4 mr-2"/> Morning
                                                         </h4>
                                                         <p>{getShortDayMorningActivity(day)}</p>
                                                     </div>
                                                     <div>
                                                         <h4 className="font-semibold flex items-center">
-                                                            <Clock className="w-4 h-4 mr-2" /> Afternoon
+                                                            <Clock className="w-4 h-4 mr-2"/> Afternoon
                                                         </h4>
                                                         <p>{getShortDayAfternoonActivity(day)}</p>
                                                     </div>
                                                     <div>
                                                         <h4 className="font-semibold flex items-center">
-                                                            <Clock className="w-4 h-4 mr-2" /> Evening
+                                                            <Clock className="w-4 h-4 mr-2"/> Evening
                                                         </h4>
                                                         <p>{getShortDayEveningActivity(day)}</p>
                                                     </div>
                                                     <div className="grid grid-cols-2 gap-4 mt-4">
                                                         <div>
                                                             <h4 className="font-semibold flex items-center">
-                                                                <Home className="w-4 h-4 mr-2" /> Accommodation
+                                                                <Home className="w-4 h-4 mr-2"/> Accommodation
                                                             </h4>
                                                             <p>{getShortDayAccommodation(day)}</p>
                                                         </div>
                                                         <div>
                                                             <h4 className="font-semibold flex items-center">
-                                                                <Utensils className="w-4 h-4 mr-2" /> Dining
+                                                                <Utensils className="w-4 h-4 mr-2"/> Dining
                                                             </h4>
                                                             <p>{getShortDayDining(day)}</p>
                                                         </div>
@@ -282,32 +314,32 @@ export default function ItineraryContent() {
                                                 <div className="space-y-4">
                                                     <div>
                                                         <h4 className="font-semibold flex items-center">
-                                                            <Clock className="w-4 h-4 mr-2" /> Morning
+                                                            <Clock className="w-4 h-4 mr-2"/> Morning
                                                         </h4>
                                                         <p>{getWeekendDayMorningActivity(day)}</p>
                                                     </div>
                                                     <div>
                                                         <h4 className="font-semibold flex items-center">
-                                                            <Clock className="w-4 h-4 mr-2" /> Afternoon
+                                                            <Clock className="w-4 h-4 mr-2"/> Afternoon
                                                         </h4>
                                                         <p>{getWeekendDayAfternoonActivity(day)}</p>
                                                     </div>
                                                     <div>
                                                         <h4 className="font-semibold flex items-center">
-                                                            <Clock className="w-4 h-4 mr-2" /> Evening
+                                                            <Clock className="w-4 h-4 mr-2"/> Evening
                                                         </h4>
                                                         <p>{getWeekendDayEveningActivity(day)}</p>
                                                     </div>
                                                     <div className="grid grid-cols-2 gap-4 mt-4">
                                                         <div>
                                                             <h4 className="font-semibold flex items-center">
-                                                                <Home className="w-4 h-4 mr-2" /> Accommodation
+                                                                <Home className="w-4 h-4 mr-2"/> Accommodation
                                                             </h4>
                                                             <p>{getWeekendDayAccommodation(day)}</p>
                                                         </div>
                                                         <div>
                                                             <h4 className="font-semibold flex items-center">
-                                                                <Utensils className="w-4 h-4 mr-2" /> Dining
+                                                                <Utensils className="w-4 h-4 mr-2"/> Dining
                                                             </h4>
                                                             <p>{getWeekendDayDining(day)}</p>
                                                         </div>
@@ -323,11 +355,12 @@ export default function ItineraryContent() {
                 </TabsContent>
 
                 {/* Seasonal Variations Tab Content */}
-                <TabsContent value="seasonal">
+                <TabsContent value="seasonal" className={"pt-4"}>
                     <div className="mb-8">
                         <h2 className="text-2xl font-bold mb-4">Seasonal Itineraries</h2>
                         <p className="mb-6">
-                            Lauhanvuori GeoPark offers unique experiences in every season. Choose the time of year for your visit and
+                            Lauhanvuori GeoPark offers unique experiences in every season. Choose the time of year for
+                            your visit and
                             discover tailored itineraries that showcase the best seasonal activities.
                         </p>
 
@@ -349,8 +382,10 @@ export default function ItineraryContent() {
                                         />
                                         <h3 className="text-xl font-bold mt-4">Summer Highlights (June-August)</h3>
                                         <p className="mt-2">
-                                            Experience the midnight sun and warm temperatures perfect for hiking, swimming in natural lakes,
-                                            and enjoying the abundant wildlife. Summer offers the longest days and most accessible trails.
+                                            Experience the midnight sun and warm temperatures perfect for hiking,
+                                            swimming in natural lakes,
+                                            and enjoying the abundant wildlife. Summer offers the longest days and most
+                                            accessible trails.
                                         </p>
                                         <div className="mt-4">
                                             <h4 className="font-semibold">Best Activities:</h4>
@@ -368,7 +403,8 @@ export default function ItineraryContent() {
                                         <Card>
                                             <CardHeader>
                                                 <CardTitle>Summer 7-Day Itinerary</CardTitle>
-                                                <CardDescription>Optimized for warm weather and long daylight hours</CardDescription>
+                                                <CardDescription>Optimized for warm weather and long daylight
+                                                    hours</CardDescription>
                                             </CardHeader>
                                             <CardContent>
                                                 <ul className="space-y-2">
@@ -411,9 +447,9 @@ export default function ItineraryContent() {
                                             <h4 className="font-semibold text-green-800">Summer Weather</h4>
                                             <p className="text-green-700 mt-1">
                                                 Average temperatures: 15-25°C (59-77°F)
-                                                <br />
+                                                <br/>
                                                 Daylight: 18-20 hours
-                                                <br />
+                                                <br/>
                                                 Rainfall: Moderate, occasional thunderstorms
                                             </p>
                                         </div>
@@ -429,10 +465,13 @@ export default function ItineraryContent() {
                                             alt="Autumn in Lauhanvuori"
                                             className="rounded-lg object-cover w-full h-64"
                                         />
-                                        <h3 className="text-xl font-bold mt-4">Autumn Highlights (September-November)</h3>
+                                        <h3 className="text-xl font-bold mt-4">Autumn Highlights
+                                            (September-November)</h3>
                                         <p className="mt-2">
-                                            Experience the spectacular fall colors as the forests transform into a canvas of red, orange, and
-                                            gold. Autumn is mushroom season and offers crisp, clear days perfect for photography.
+                                            Experience the spectacular fall colors as the forests transform into a
+                                            canvas of red, orange, and
+                                            gold. Autumn is mushroom season and offers crisp, clear days perfect for
+                                            photography.
                                         </p>
                                         <div className="mt-4">
                                             <h4 className="font-semibold">Best Activities:</h4>
@@ -450,7 +489,8 @@ export default function ItineraryContent() {
                                         <Card>
                                             <CardHeader>
                                                 <CardTitle>Autumn 7-Day Itinerary</CardTitle>
-                                                <CardDescription>Optimized for fall colors and harvest season</CardDescription>
+                                                <CardDescription>Optimized for fall colors and harvest
+                                                    season</CardDescription>
                                             </CardHeader>
                                             <CardContent>
                                                 <ul className="space-y-2">
@@ -493,9 +533,9 @@ export default function ItineraryContent() {
                                             <h4 className="font-semibold text-orange-800">Autumn Weather</h4>
                                             <p className="text-orange-700 mt-1">
                                                 Average temperatures: 0-15°C (32-59°F)
-                                                <br />
+                                                <br/>
                                                 Daylight: 8-14 hours (decreasing)
-                                                <br />
+                                                <br/>
                                                 Rainfall: Moderate, occasional early snow
                                             </p>
                                         </div>
@@ -511,10 +551,13 @@ export default function ItineraryContent() {
                                             alt="Winter in Lauhanvuori"
                                             className="rounded-lg object-cover w-full h-64"
                                         />
-                                        <h3 className="text-xl font-bold mt-4">Winter Highlights (December-February)</h3>
+                                        <h3 className="text-xl font-bold mt-4">Winter Highlights
+                                            (December-February)</h3>
                                         <p className="mt-2">
-                                            Experience the magical snow-covered landscape and the possibility of seeing the Northern Lights.
-                                            Winter offers unique activities like cross-country skiing, snowshoeing, and ice fishing.
+                                            Experience the magical snow-covered landscape and the possibility of seeing
+                                            the Northern Lights.
+                                            Winter offers unique activities like cross-country skiing, snowshoeing, and
+                                            ice fishing.
                                         </p>
                                         <div className="mt-4">
                                             <h4 className="font-semibold">Best Activities:</h4>
@@ -532,7 +575,8 @@ export default function ItineraryContent() {
                                         <Card>
                                             <CardHeader>
                                                 <CardTitle>Winter 7-Day Itinerary</CardTitle>
-                                                <CardDescription>Optimized for snow activities and cozy experiences</CardDescription>
+                                                <CardDescription>Optimized for snow activities and cozy
+                                                    experiences</CardDescription>
                                             </CardHeader>
                                             <CardContent>
                                                 <ul className="space-y-2">
@@ -575,9 +619,9 @@ export default function ItineraryContent() {
                                             <h4 className="font-semibold text-blue-800">Winter Weather</h4>
                                             <p className="text-blue-700 mt-1">
                                                 Average temperatures: -15 to 0°C (5-32°F)
-                                                <br />
+                                                <br/>
                                                 Daylight: 4-8 hours
-                                                <br />
+                                                <br/>
                                                 Snowfall: Regular, snow cover from November to April
                                             </p>
                                         </div>
@@ -595,8 +639,10 @@ export default function ItineraryContent() {
                                         />
                                         <h3 className="text-xl font-bold mt-4">Spring Highlights (March-May)</h3>
                                         <p className="mt-2">
-                                            Experience the awakening of nature as snow melts, birds return, and the first flowers bloom.
-                                            Spring offers a unique combination of lingering winter activities and emerging summer
+                                            Experience the awakening of nature as snow melts, birds return, and the
+                                            first flowers bloom.
+                                            Spring offers a unique combination of lingering winter activities and
+                                            emerging summer
                                             possibilities.
                                         </p>
                                         <div className="mt-4">
@@ -615,7 +661,8 @@ export default function ItineraryContent() {
                                         <Card>
                                             <CardHeader>
                                                 <CardTitle>Spring 7-Day Itinerary</CardTitle>
-                                                <CardDescription>Optimized for nature awakening and fewer crowds</CardDescription>
+                                                <CardDescription>Optimized for nature awakening and fewer
+                                                    crowds</CardDescription>
                                             </CardHeader>
                                             <CardContent>
                                                 <ul className="space-y-2">
@@ -658,9 +705,9 @@ export default function ItineraryContent() {
                                             <h4 className="font-semibold text-green-800">Spring Weather</h4>
                                             <p className="text-green-700 mt-1">
                                                 Average temperatures: 0-15°C (32-59°F)
-                                                <br />
+                                                <br/>
                                                 Daylight: 13-18 hours (increasing)
-                                                <br />
+                                                <br/>
                                                 Precipitation: Varied, melting snow, occasional rain
                                             </p>
                                         </div>
@@ -672,11 +719,12 @@ export default function ItineraryContent() {
                 </TabsContent>
 
                 {/* Itinerary Builder Tab Content */}
-                <TabsContent value="builder">
+                <TabsContent value="builder" className="pt-4">
                     <div className="mb-8">
                         <h2 className="text-2xl font-bold mb-4">Custom Itinerary Builder</h2>
                         <p className="mb-6">
-                            Create your own personalized itinerary by selecting activities that match your interests, available time,
+                            Create your own personalized itinerary by selecting activities that match your interests,
+                            available time,
                             and preferences. Drag and drop activities to build your perfect park experience.
                         </p>
 
@@ -685,7 +733,8 @@ export default function ItineraryContent() {
                                 <Card>
                                     <CardHeader>
                                         <CardTitle>Available Activities</CardTitle>
-                                        <CardDescription>Filter and select activities to add to your itinerary</CardDescription>
+                                        <CardDescription>Filter and select activities to add to your
+                                            itinerary</CardDescription>
                                     </CardHeader>
                                     <CardContent>
                                         <div className="space-y-4">
@@ -693,7 +742,7 @@ export default function ItineraryContent() {
                                                 <Label htmlFor="activity-filter">Filter by type</Label>
                                                 <Select defaultValue="all">
                                                     <SelectTrigger id="activity-filter">
-                                                        <SelectValue placeholder="Select activity type" />
+                                                        <SelectValue placeholder="Select activity type"/>
                                                     </SelectTrigger>
                                                     <SelectContent>
                                                         <SelectItem value="all">All Activities</SelectItem>
@@ -711,7 +760,7 @@ export default function ItineraryContent() {
                                                 <Label htmlFor="difficulty-filter">Difficulty level</Label>
                                                 <Select defaultValue="all">
                                                     <SelectTrigger id="difficulty-filter">
-                                                        <SelectValue placeholder="Select difficulty" />
+                                                        <SelectValue placeholder="Select difficulty"/>
                                                     </SelectTrigger>
                                                     <SelectContent>
                                                         <SelectItem value="all">All Levels</SelectItem>
@@ -726,7 +775,7 @@ export default function ItineraryContent() {
                                                 <Label htmlFor="duration-filter">Duration</Label>
                                                 <Select defaultValue="all">
                                                     <SelectTrigger id="duration-filter">
-                                                        <SelectValue placeholder="Select duration" />
+                                                        <SelectValue placeholder="Select duration"/>
                                                     </SelectTrigger>
                                                     <SelectContent>
                                                         <SelectItem value="all">Any Duration</SelectItem>
@@ -737,7 +786,7 @@ export default function ItineraryContent() {
                                                 </Select>
                                             </div>
 
-                                            <Separator />
+                                            <Separator/>
 
                                             <div className="space-y-2 max-h-96 overflow-y-auto">
                                                 {activityOptions.map((activity) => (
@@ -757,7 +806,8 @@ export default function ItineraryContent() {
                                                             }}
                                                         />
                                                         <div>
-                                                            <Label htmlFor={`activity-${activity.id}`} className="font-medium cursor-pointer">
+                                                            <Label htmlFor={`activity-${activity.id}`}
+                                                                   className="font-medium cursor-pointer">
                                                                 {activity.name}
                                                             </Label>
                                                             <p className="text-sm text-gray-500">
@@ -776,12 +826,14 @@ export default function ItineraryContent() {
                                 <Card>
                                     <CardHeader>
                                         <CardTitle>Your Custom Itinerary</CardTitle>
-                                        <CardDescription>Selected activities will appear here. Arrange them by day.</CardDescription>
+                                        <CardDescription>Selected activities will appear here. Arrange them by
+                                            day.</CardDescription>
                                     </CardHeader>
                                     <CardContent>
                                         {selectedActivities.length === 0 ? (
                                             <div className="text-center py-8 border-2 border-dashed rounded-lg">
-                                                <p className="text-gray-500">Select activities from the left panel to build your itinerary</p>
+                                                <p className="text-gray-500">Select activities from the left panel to
+                                                    build your itinerary</p>
                                             </div>
                                         ) : (
                                             <div className="space-y-6">
@@ -809,7 +861,7 @@ export default function ItineraryContent() {
                                                                                 setSelectedActivities(selectedActivities.filter((id) => id !== activity.id))
                                                                             }
                                                                         >
-                                                                            <X className="h-4 w-4" />
+                                                                            <X className="h-4 w-4"/>
                                                                         </Button>
                                                                     </div>
                                                                 ) : null
@@ -833,11 +885,12 @@ export default function ItineraryContent() {
                 </TabsContent>
 
                 {/* Visitor Testimonials Tab Content */}
-                <TabsContent value="testimonials">
+                <TabsContent value="testimonials" className="pt-4">
                     <div className="mb-8">
                         <h2 className="text-2xl font-bold mb-4">Visitor Testimonials</h2>
                         <p className="mb-6">
-                            Read about the experiences of visitors who have followed our itineraries. Their stories and tips might
+                            Read about the experiences of visitors who have followed our itineraries. Their stories and
+                            tips might
                             help you plan your own perfect visit to Lauhanvuori GeoPark.
                         </p>
 
@@ -859,12 +912,14 @@ export default function ItineraryContent() {
                                 <CardContent>
                                     <div className="flex mb-2">
                                         {[1, 2, 3, 4, 5].map((star) => (
-                                            <Star key={star} className="w-4 h-4 fill-yellow-400 text-yellow-400" />
+                                            <Star key={star} className="w-4 h-4 fill-yellow-400 text-yellow-400"/>
                                         ))}
                                     </div>
                                     <p className="text-sm">
-                                        "The 7-day itinerary was perfect for our family vacation. We especially loved the cycling day and
-                                        the cultural experiences. The accommodation recommendations were spot-on, and we appreciated the
+                                        "The 7-day itinerary was perfect for our family vacation. We especially loved
+                                        the cycling day and
+                                        the cultural experiences. The accommodation recommendations were spot-on, and we
+                                        appreciated the
                                         detailed time estimates that helped us plan each day."
                                     </p>
                                 </CardContent>
@@ -899,8 +954,10 @@ export default function ItineraryContent() {
                                         ))}
                                     </div>
                                     <p className="text-sm">
-                                        "As an experienced cross-country skier, I found the winter itinerary to be well-balanced between
-                                        challenging activities and relaxation. The Northern Lights viewing spot recommendation was excellent
+                                        "As an experienced cross-country skier, I found the winter itinerary to be
+                                        well-balanced between
+                                        challenging activities and relaxation. The Northern Lights viewing spot
+                                        recommendation was excellent
                                         - we saw an amazing display on our fifth night!"
                                     </p>
                                 </CardContent>
@@ -928,12 +985,14 @@ export default function ItineraryContent() {
                                 <CardContent>
                                     <div className="flex mb-2">
                                         {[1, 2, 3, 4, 5].map((star) => (
-                                            <Star key={star} className="w-4 h-4 fill-yellow-400 text-yellow-400" />
+                                            <Star key={star} className="w-4 h-4 fill-yellow-400 text-yellow-400"/>
                                         ))}
                                     </div>
                                     <p className="text-sm">
-                                        "We customized the 3-day itinerary for a weekend trip and it was perfect! The mushroom foraging
-                                        experience was a highlight - we collected chanterelles and learned how to prepare them from a local
+                                        "We customized the 3-day itinerary for a weekend trip and it was perfect! The
+                                        mushroom foraging
+                                        experience was a highlight - we collected chanterelles and learned how to
+                                        prepare them from a local
                                         guide. The fall colors were absolutely stunning."
                                     </p>
                                 </CardContent>
@@ -948,7 +1007,8 @@ export default function ItineraryContent() {
                         <div className="mt-8 text-center">
                             <h3 className="text-xl font-semibold mb-4">Share Your Experience</h3>
                             <p className="mb-4">
-                                Have you visited Lauhanvuori GeoPark following one of our itineraries? We'd love to hear about your
+                                Have you visited Lauhanvuori GeoPark following one of our itineraries? We'd love to hear
+                                about your
                                 experience!
                             </p>
                             <Button>Submit Your Testimonial</Button>
@@ -957,11 +1017,12 @@ export default function ItineraryContent() {
                 </TabsContent>
 
                 {/* Print & Download Tab Content */}
-                <TabsContent value="print">
+                <TabsContent value="print" className="pt-4">
                     <div className="mb-8">
                         <h2 className="text-2xl font-bold mb-4">Print & Download Your Itinerary</h2>
                         <p className="mb-6">
-                            Create a printer-friendly version of your selected itinerary to take with you on your trip. You can choose
+                            Create a printer-friendly version of your selected itinerary to take with you on your trip.
+                            You can choose
                             which days to include and download as a PDF for offline access.
                         </p>
 
@@ -969,7 +1030,8 @@ export default function ItineraryContent() {
                             <Card>
                                 <CardHeader>
                                     <CardTitle>Select Days to Print</CardTitle>
-                                    <CardDescription>Choose which days you want to include in your printed itinerary</CardDescription>
+                                    <CardDescription>Choose which days you want to include in your printed
+                                        itinerary</CardDescription>
                                 </CardHeader>
                                 <CardContent>
                                     <div className="space-y-4">
@@ -986,29 +1048,29 @@ export default function ItineraryContent() {
                                             ))}
                                         </div>
 
-                                        <Separator />
+                                        <Separator/>
 
                                         <div>
                                             <h3 className="font-semibold mb-2">Include in printout:</h3>
                                             <div className="space-y-2">
                                                 <div className="flex items-center space-x-2">
-                                                    <Checkbox id="print-map" defaultChecked />
+                                                    <Checkbox id="print-map" defaultChecked/>
                                                     <Label htmlFor="print-map">Map</Label>
                                                 </div>
                                                 <div className="flex items-center space-x-2">
-                                                    <Checkbox id="print-accommodations" defaultChecked />
+                                                    <Checkbox id="print-accommodations" defaultChecked/>
                                                     <Label htmlFor="print-accommodations">Accommodation details</Label>
                                                 </div>
                                                 <div className="flex items-center space-x-2">
-                                                    <Checkbox id="print-dining" defaultChecked />
+                                                    <Checkbox id="print-dining" defaultChecked/>
                                                     <Label htmlFor="print-dining">Dining recommendations</Label>
                                                 </div>
                                                 <div className="flex items-center space-x-2">
-                                                    <Checkbox id="print-transport" defaultChecked />
+                                                    <Checkbox id="print-transport" defaultChecked/>
                                                     <Label htmlFor="print-transport">Transportation information</Label>
                                                 </div>
                                                 <div className="flex items-center space-x-2">
-                                                    <Checkbox id="print-contacts" defaultChecked />
+                                                    <Checkbox id="print-contacts" defaultChecked/>
                                                     <Label htmlFor="print-contacts">Emergency contacts</Label>
                                                 </div>
                                             </div>
@@ -1020,12 +1082,13 @@ export default function ItineraryContent() {
                                         Select All Days
                                     </Button>
                                     <div className="space-x-2">
-                                        <Button variant="outline" onClick={preparePrint} disabled={printDays.length === 0}>
-                                            <Printer className="mr-2 h-4 w-4" />
+                                        <Button variant="outline" onClick={preparePrint}
+                                                disabled={printDays.length === 0}>
+                                            <Printer className="mr-2 h-4 w-4"/>
                                             Print
                                         </Button>
                                         <Button disabled={printDays.length === 0}>
-                                            <Download className="mr-2 h-4 w-4" />
+                                            <Download className="mr-2 h-4 w-4"/>
                                             Download PDF
                                         </Button>
                                     </div>
@@ -1046,7 +1109,8 @@ export default function ItineraryContent() {
                                         ) : (
                                             <div className="space-y-6">
                                                 <div className="text-center">
-                                                    <h1 className="text-2xl font-bold">Lauhanvuori GeoPark Itinerary</h1>
+                                                    <h1 className="text-2xl font-bold">Lauhanvuori GeoPark
+                                                        Itinerary</h1>
                                                     <p className="text-gray-500">Your personalized travel plan</p>
                                                 </div>
 
@@ -1101,10 +1165,11 @@ export default function ItineraryContent() {
             <div className="bg-green-50 rounded-lg p-8 text-center mt-12">
                 <h2 className="text-2xl font-bold mb-4">Ready to Experience Lauhanvuori GeoPark?</h2>
                 <p className="max-w-2xl mx-auto mb-6">
-                    Whether you follow one of our suggested itineraries or create your own custom plan, Lauhanvuori GeoPark offers
+                    Whether you follow one of our suggested itineraries or create your own custom plan, Lauhanvuori
+                    GeoPark offers
                     unforgettable experiences in every season.
                 </p>
-                <div className="flex justify-center gap-4">
+                <div className="flex flex-col space-y-4 sm:flex-row sm:space-y-0 sm:space-x-4 justify-center mb-8 ">
                     <Button size="lg">Book Your Accommodation</Button>
                     <Button variant="outline" size="lg">
                         Contact Us for More Information
@@ -1114,48 +1179,48 @@ export default function ItineraryContent() {
 
             {/* Print-specific styles */}
             <style jsx global>{`
-        @media print {
-          .print-view {
-            background: white;
-            padding: 2cm;
-            font-size: 12pt;
-          }
-          
-          .print-view nav,
-          .print-view footer,
-          .print-view button,
-          .print-view .tabs-list,
-          .print-view .call-to-action {
-            display: none !important;
-          }
-          
-          .print-view h1 {
-            font-size: 24pt;
-            margin-bottom: 1cm;
-          }
-          
-          .print-view h2 {
-            font-size: 18pt;
-            margin-top: 1cm;
-            margin-bottom: 0.5cm;
-          }
-          
-          .print-view h3 {
-            font-size: 14pt;
-            margin-top: 0.5cm;
-            margin-bottom: 0.2cm;
-          }
-          
-          .print-view p {
-            margin-bottom: 0.3cm;
-          }
-          
-          .print-view .day-section {
-            page-break-inside: avoid;
-            margin-bottom: 1cm;
-          }
-        }
-      `}</style>
+                @media print {
+                    .print-view {
+                        background: white;
+                        padding: 2cm;
+                        font-size: 12pt;
+                    }
+
+                    .print-view nav,
+                    .print-view footer,
+                    .print-view button,
+                    .print-view .tabs-list,
+                    .print-view .call-to-action {
+                        display: none !important;
+                    }
+
+                    .print-view h1 {
+                        font-size: 24pt;
+                        margin-bottom: 1cm;
+                    }
+
+                    .print-view h2 {
+                        font-size: 18pt;
+                        margin-top: 1cm;
+                        margin-bottom: 0.5cm;
+                    }
+
+                    .print-view h3 {
+                        font-size: 14pt;
+                        margin-top: 0.5cm;
+                        margin-bottom: 0.2cm;
+                    }
+
+                    .print-view p {
+                        margin-bottom: 0.3cm;
+                    }
+
+                    .print-view .day-section {
+                        page-break-inside: avoid;
+                        margin-bottom: 1cm;
+                    }
+                }
+            `}</style>
         </div>
     )
 }
@@ -1372,24 +1437,24 @@ function getWeekendDayDining(day: number) {
 
 // Sample activity options for the itinerary builder
 const activityOptions = [
-    { id: "hiking-summit", name: "Lauhanvuori Summit Hike", duration: "4-5 hours", difficulty: "Moderate" },
-    { id: "canyon-trail", name: "Katikankanjoni Canyon Trail", duration: "2-3 hours", difficulty: "Easy" },
-    { id: "cycling-forest", name: "Forest Cycling Tour", duration: "Half day", difficulty: "Moderate" },
-    { id: "bog-walk", name: "Guided Bog Walk", duration: "2 hours", difficulty: "Easy" },
-    { id: "wildlife-watching", name: "Wildlife Watching Hide", duration: "2-3 hours", difficulty: "Easy" },
-    { id: "canoeing", name: "Lake Canoeing Adventure", duration: "3-4 hours", difficulty: "Moderate" },
-    { id: "geology-tour", name: "Geological Wonders Tour", duration: "Half day", difficulty: "Easy" },
-    { id: "cultural-museum", name: "Heritage Museum Visit", duration: "2 hours", difficulty: "Easy" },
-    { id: "farm-visit", name: "Local Farm Experience", duration: "3 hours", difficulty: "Easy" },
-    { id: "sauna-experience", name: "Traditional Finnish Sauna", duration: "2 hours", difficulty: "Easy" },
-    { id: "fishing-trip", name: "Guided Fishing Trip", duration: "4 hours", difficulty: "Easy" },
-    { id: "star-gazing", name: "Evening Star Gazing", duration: "2 hours", difficulty: "Easy" },
-    { id: "photography-walk", name: "Nature Photography Walk", duration: "3 hours", difficulty: "Easy" },
-    { id: "berry-picking", name: "Seasonal Berry Picking", duration: "2-3 hours", difficulty: "Easy" },
-    { id: "cooking-class", name: "Finnish Cuisine Workshop", duration: "3 hours", difficulty: "Easy" },
-    { id: "cross-country-ski", name: "Cross-Country Skiing", duration: "Half day", difficulty: "Moderate" },
-    { id: "snowshoeing", name: "Winter Snowshoeing", duration: "3 hours", difficulty: "Moderate" },
-    { id: "ice-fishing", name: "Ice Fishing Experience", duration: "3 hours", difficulty: "Easy" },
-    { id: "northern-lights", name: "Northern Lights Viewing", duration: "2-3 hours", difficulty: "Easy" },
-    { id: "mushroom-foraging", name: "Mushroom Foraging Tour", duration: "4 hours", difficulty: "Easy" },
+    {id: "hiking-summit", name: "Lauhanvuori Summit Hike", duration: "4-5 hours", difficulty: "Moderate"},
+    {id: "canyon-trail", name: "Katikankanjoni Canyon Trail", duration: "2-3 hours", difficulty: "Easy"},
+    {id: "cycling-forest", name: "Forest Cycling Tour", duration: "Half day", difficulty: "Moderate"},
+    {id: "bog-walk", name: "Guided Bog Walk", duration: "2 hours", difficulty: "Easy"},
+    {id: "wildlife-watching", name: "Wildlife Watching Hide", duration: "2-3 hours", difficulty: "Easy"},
+    {id: "canoeing", name: "Lake Canoeing Adventure", duration: "3-4 hours", difficulty: "Moderate"},
+    {id: "geology-tour", name: "Geological Wonders Tour", duration: "Half day", difficulty: "Easy"},
+    {id: "cultural-museum", name: "Heritage Museum Visit", duration: "2 hours", difficulty: "Easy"},
+    {id: "farm-visit", name: "Local Farm Experience", duration: "3 hours", difficulty: "Easy"},
+    {id: "sauna-experience", name: "Traditional Finnish Sauna", duration: "2 hours", difficulty: "Easy"},
+    {id: "fishing-trip", name: "Guided Fishing Trip", duration: "4 hours", difficulty: "Easy"},
+    {id: "star-gazing", name: "Evening Star Gazing", duration: "2 hours", difficulty: "Easy"},
+    {id: "photography-walk", name: "Nature Photography Walk", duration: "3 hours", difficulty: "Easy"},
+    {id: "berry-picking", name: "Seasonal Berry Picking", duration: "2-3 hours", difficulty: "Easy"},
+    {id: "cooking-class", name: "Finnish Cuisine Workshop", duration: "3 hours", difficulty: "Easy"},
+    {id: "cross-country-ski", name: "Cross-Country Skiing", duration: "Half day", difficulty: "Moderate"},
+    {id: "snowshoeing", name: "Winter Snowshoeing", duration: "3 hours", difficulty: "Moderate"},
+    {id: "ice-fishing", name: "Ice Fishing Experience", duration: "3 hours", difficulty: "Easy"},
+    {id: "northern-lights", name: "Northern Lights Viewing", duration: "2-3 hours", difficulty: "Easy"},
+    {id: "mushroom-foraging", name: "Mushroom Foraging Tour", duration: "4 hours", difficulty: "Easy"},
 ]

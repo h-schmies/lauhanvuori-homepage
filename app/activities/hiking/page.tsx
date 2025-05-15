@@ -84,7 +84,7 @@ export default function HikingPage() {
       </div>
 
       <Tabs defaultValue={hikingRoutes[0].id} className="mb-12">
-        <TabsList className="grid grid-cols-3 mb-8">
+        <TabsList className="grid w-full h-full grid-cols-1 md:grid-cols-3">
           {hikingRoutes.map((route) => (
             <TabsTrigger key={route.id} value={route.id}>
               {route.name}
@@ -93,7 +93,7 @@ export default function HikingPage() {
         </TabsList>
 
         {hikingRoutes.map((route) => (
-          <TabsContent key={route.id} value={route.id}>
+          <TabsContent key={route.id} value={route.id} className={"pt-4"}>
             <div className="grid md:grid-cols-2 gap-8">
               <div className="relative aspect-video rounded-lg overflow-hidden">
                 <Image src={route.image || "/placeholder.svg"} alt={route.name} fill className="object-cover" />

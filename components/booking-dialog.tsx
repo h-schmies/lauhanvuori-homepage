@@ -115,7 +115,7 @@ export default function BookingDialog({ open, onOpenChange, vehicle, station, ty
 
     return (
         <Dialog open={open} onOpenChange={handleClose}>
-            <DialogContent className="sm:max-w-[800px] h-[70vh] max-h-[70vh]">
+            <DialogContent className="sm:max-w-[800px] max-h-[70vh]">
                 <DialogHeader>
                     <DialogTitle>Book {vehicleTitle}</DialogTitle>
                     <DialogDescription>
@@ -137,7 +137,7 @@ export default function BookingDialog({ open, onOpenChange, vehicle, station, ty
                                         {date ? format(date, "PPP") : "Select a date"}
                                     </Button>
                                 </PopoverTrigger>
-                                <PopoverContent className="w-auto max-h-[300px] overflow-auto">
+                                <PopoverContent className="w-auto overflow-auto">
                                     <Calendar
                                         mode="single"
                                         selected={date}
