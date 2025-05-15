@@ -34,7 +34,7 @@ export default function Hero() {
                         className="!bg-white/20 text-white border-white hover:!bg-white/30"
                         style={{backgroundColor: "rgba(255, 255, 255, 0.2)"}}
                     >
-                        <Link href="/transportation">Plan Your Visit</Link>
+                        <Link href="/itinerary">Plan Your Visit</Link>
                     </Button>
                 </div>
             </div>
