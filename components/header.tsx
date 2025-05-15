@@ -30,6 +30,7 @@ const navItems = [
     },
     {name: "Accommodation", href: "/accommodation"},
     { name: "Sustainability", href: "/sustainability" },
+    {name: "Plan Your Visit", href: "/itinerary"},
 ]
 
 export default function Header() {
@@ -74,12 +75,25 @@ export default function Header() {
                             item.subItems ? (
                                 <div key={item.name} className="relative group">
                                     <div className="flex items-center gap-1">
-                                        <Link
-                                            href={item.href}
-                                            className="text-base font-medium text-gray-700 hover:text-green-700 transition-colors"
-                                        >
-                                            {item.name}
-                                        </Link>
+                                        {
+                                            item.name == "Plan Your Visit" ? (
+                                                <Button className={"bg-green-800 hover:bg-pink-400 text-white border-0"}>
+                                                    <Link
+                                                        href={item.href}
+                                                    >
+                                                        {item.name}
+                                                    </Link>
+                                                </Button>
+
+                                            ) : (
+                                                <Link
+                                                    href={item.href}
+                                                    className="text-base font-medium text-gray-700 hover:text-green-700 transition-colors"
+                                                >
+                                                    {item.name}
+                                                </Link>
+                                            )
+                                        }
                                         <ChevronDown
                                             className="h-4 w-4 text-gray-500 group-hover:text-green-700 transition-colors"/>
                                     </div>

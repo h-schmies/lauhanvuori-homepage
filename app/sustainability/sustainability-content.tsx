@@ -904,7 +904,11 @@ export default function SustainabilityContent() {
                         for future generations. Thank you for being a responsible visitor!
                     </p>
                     <div className="flex flex-col sm:flex-row gap-3">
-                        <Button className="bg-green-600 hover:bg-green-700 text-white">Plan Your Visit</Button>
+                        <Button className="bg-green-600 hover:bg-green-700 text-white">
+                            <Link href={"/itinerary"}>
+                                Plan Your Visit
+                            </Link>
+                        </Button>
                         <Button variant="outline" className="border-green-300 text-green-700 hover:bg-green-100">
                             Learn About Conservation Efforts
                         </Button>
