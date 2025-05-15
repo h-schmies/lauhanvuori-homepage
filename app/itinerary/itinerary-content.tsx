@@ -343,7 +343,7 @@ export default function ItineraryContent() {
                                 <div className="grid md:grid-cols-2 gap-8">
                                     <div>
                                         <img
-                                            src="/placeholder-summer.png"
+                                            src="/images/seasons/summer.jpg"
                                             alt="Summer in Lauhanvuori"
                                             className="rounded-lg object-cover w-full h-64"
                                         />
@@ -425,7 +425,7 @@ export default function ItineraryContent() {
                                 <div className="grid md:grid-cols-2 gap-8">
                                     <div>
                                         <img
-                                            src="/placeholder-autumn.png"
+                                            src="/images/seasons/fall.jpg"
                                             alt="Autumn in Lauhanvuori"
                                             className="rounded-lg object-cover w-full h-64"
                                         />
@@ -507,7 +507,7 @@ export default function ItineraryContent() {
                                 <div className="grid md:grid-cols-2 gap-8">
                                     <div>
                                         <img
-                                            src="/placeholder-winter.png"
+                                            src="/images/seasons/winter.jpg"
                                             alt="Winter in Lauhanvuori"
                                             className="rounded-lg object-cover w-full h-64"
                                         />
@@ -589,7 +589,7 @@ export default function ItineraryContent() {
                                 <div className="grid md:grid-cols-2 gap-8">
                                     <div>
                                         <img
-                                            src="/placeholder-spring.png"
+                                            src="/images/seasons/spring.jpg"
                                             alt="Spring in Lauhanvuori"
                                             className="rounded-lg object-cover w-full h-64"
                                         />
